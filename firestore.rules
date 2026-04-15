@@ -1,13 +1,8 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    match /flights/{flightId} {
-      allow read, write: if true;
-    }
-    match /mesh_base/{meshId} {
-      allow read, write: if true;
-    }
-    match /operators/{opId} {
+    // Modo teste — permite leitura e escrita livre por 30 dias
+    match /{document=**} {
       allow read, write: if true;
     }
   }
